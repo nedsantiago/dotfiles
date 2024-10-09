@@ -1,3 +1,61 @@
 #!/bin/bash
 
-echo "This shell script is a dummy file"
+# Define dotfile repository location
+dotfiles_dir="$HOME/dotfiles"
+
+echo "Beginning setup script..."
+
+# List of configuration files
+CONFIG_FILES=(
+    ".config/alacritty"
+    ".config/i3"
+    ".config/nvim"
+    ".config/polybar"
+)
+
+# Function for copying configs
+create_symlink() {
+    local src=$1
+    local dest=$2
+
+    # check if destination exists
+    if [ -d "$dest" ]; then
+        echo "Backing up existing $dest to ${dest}.bak"
+        mv "$dest" "${dest}.bak"
+    fi
+
+    # create the symlink
+    ln -s "$src" "$dest"
+}
+
+# Loop for copying configs
+for file in "${CONFIG_FILES[@]}"; do
+    src="$dotfiles_dir/$file"
+    dest="$HOME/$file"
+
+    if [ -f "$src" ]; then
+        create_symlink "$src" "$dest"
+    else
+        echo "Warning: $src does not exist, skipping."
+    fi
+
+done
+
+# System configuration directories
+SYSTEM_NIXOS_CONFIG_DIR="/etc/nixos"
+
+if [ -d /etc/nixos ]; then
+    MY_NIXOS_SUBDIR=".config/nixos"
+    echo "Detected /etc/nixos/ assuming NixOS system..."
+    echo "Copying NixOS Configuration file..."
+    sudo cp -r "$dotfiles_dir/$MY_NIXOS_SUBDIR" "$SYSTEM_NIXOS_CONFIG_DIR/"
+fi
+
+echo "Cleaning up..."
+unset src
+unset dest
+unset MY_NIXOS_SUBDIR
+unset SYSTEM_NIXOS_CONFIG_DIR
+unset CONFIG_FILES
+
+echo "Completed setup script..."

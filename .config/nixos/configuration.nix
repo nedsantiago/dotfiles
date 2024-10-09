@@ -57,7 +57,7 @@
     dunst
   ];
 
-  # Switch from GDM to SDDM
+  # Enabling xserver and i3
   services.xserver.enable = true;
   services.xserver.desktopManager.xterm.enable = false;
   services.xserver.windowManager.i3 = {

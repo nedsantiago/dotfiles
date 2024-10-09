@@ -7,10 +7,10 @@ echo "Beginning setup script..."
 
 # List of configuration files
 CONFIG_FILES=(
-    ".config/alacritty"
-    ".config/i3"
-    ".config/nvim"
-    ".config/polybar"
+    ".config/alacritty/alacritty.toml"
+    ".config/i3/config"
+    ".config/nvim/init.vim"
+    ".config/polybar/config.ini"
 )
 
 # Function for copying configs
@@ -19,7 +19,7 @@ create_symlink() {
     local dest=$2
 
     # check if destination exists
-    if [ -d "$dest" ]; then
+    if [ -f "$dest" ]; then
         echo "Backing up existing $dest to ${dest}.bak"
         mv "$dest" "${dest}.bak"
     fi
@@ -41,21 +41,17 @@ for file in "${CONFIG_FILES[@]}"; do
 
 done
 
-# System configuration directories
 SYSTEM_NIXOS_CONFIG_DIR="/etc/nixos"
-
-if [ -d /etc/nixos ]; then
-    MY_NIXOS_SUBDIR=".config/nixos"
-    echo "Detected /etc/nixos/ assuming NixOS system..."
-    echo "Copying NixOS Configuration file..."
-    sudo cp -r "$dotfiles_dir/$MY_NIXOS_SUBDIR" "$SYSTEM_NIXOS_CONFIG_DIR/"
-fi
+# Add links to nixos configs
+create_symlink "$dotfiles_dir/.config/nixos/configuration.nix" "$SYSTEM_NIXOS_CONFIG_DIR/configuration.nix"
+create_symlink "$dotfiles_dir/.config/nixos/hardware-configuration.nix" "$SYSTEM_NIXOS_CONFIG_DIR/hardware-configuration.nix"
 
 echo "Cleaning up..."
 unset src
 unset dest
+unset file
+unset dofiles_dir
 unset MY_NIXOS_SUBDIR
 unset SYSTEM_NIXOS_CONFIG_DIR
-unset CONFIG_FILES
 
 echo "Completed setup script..."

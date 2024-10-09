@@ -1,6 +1,6 @@
 [window]
-opacity = 0.85
-padding.x = 20
+opacity = 0.50
+padding.x = 10
 padding.y = 10
 
 [font]
@@ -11,3 +11,7 @@ bold_italic.family = "Consolas"
 
 [mouse]
 hide_when_typing = true
+
+[cursor]
+style.shape="Block"
+style.blinking="On"

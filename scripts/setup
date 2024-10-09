@@ -43,8 +43,8 @@ done
 
 SYSTEM_NIXOS_CONFIG_DIR="/etc/nixos"
 # Add links to nixos configs
-create_symlink "$dotfiles_dir/.config/nixos/configuration.nix" "$SYSTEM_NIXOS_CONFIG_DIR/configuration.nix"
-create_symlink "$dotfiles_dir/.config/nixos/hardware-configuration.nix" "$SYSTEM_NIXOS_CONFIG_DIR/hardware-configuration.nix"
+sudo cp "$dotfiles_dir/.config/nixos/configuration.nix" "$SYSTEM_NIXOS_CONFIG_DIR/configuration.nix"
+sudo cp "$dotfiles_dir/.config/nixos/hardware-configuration.nix" "$SYSTEM_NIXOS_CONFIG_DIR/hardware-configuration.nix"
 
 echo "Cleaning up..."
 unset src

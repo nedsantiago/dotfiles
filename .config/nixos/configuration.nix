@@ -38,7 +38,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # my packages
+    # My packages
     neovim
     wget
     tree
@@ -48,8 +48,9 @@
     dua
     alacritty
     firefox
+    # My development packages
     git
-    # window manager packages
+    # Window manager packages
     neofetch
     polybar
     rofi
@@ -69,7 +70,7 @@
     ];
   };
 
-  services.xserver.displayManager.defaultSession = "none+i3";
+  services.displayManager.defaultSession = "none+i3";
 
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";

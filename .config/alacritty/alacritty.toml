@@ -1,0 +1,13 @@
+[window]
+opacity = 0.85
+padding.x = 20
+padding.y = 10
+
+[font]
+normal.family = "Consolas"
+bold.family = "Consolas"
+italic.family = "Consolas"
+bold_italic.family = "Consolas"
+
+[mouse]
+hide_when_typing = true

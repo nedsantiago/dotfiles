@@ -47,6 +47,7 @@
     fselect
     dua
     alacritty
+    kitty
     firefox
     # My development packages
     git
@@ -69,6 +70,7 @@
       i3blocks
     ];
   };
+  services.picom.enable = true;
 
   services.displayManager.defaultSession = "none+i3";
 

@@ -51,6 +51,7 @@
     pass            # password and secrets manager
     gnupg           # encryption key generator
     pinentry-gnome3 # pinentry for gpg
+    ssh
     firefox
     # My development packages
     git             # version control

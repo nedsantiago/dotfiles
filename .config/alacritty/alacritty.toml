@@ -1,13 +1,13 @@
 [window]
-opacity = 0.50
+opacity = 0.80
 padding.x = 10
 padding.y = 10
 
 [font]
-normal.family = "Consolas"
-bold.family = "Consolas"
-italic.family = "Consolas"
-bold_italic.family = "Consolas"
+normal.family = "Fira Code"
+bold.family = "Fira Code"
+italic.family = "Fira Code"
+bold_italic.family = "Fira Code"
 
 [mouse]
 hide_when_typing = true

@@ -39,26 +39,37 @@
 
   environment.systemPackages = with pkgs; [
     # My packages
-    neovim
+    alacritty       # primary terminal
+    kitty           # backup terminal
+    neovim          # text editor
     wget
     tree
     bat
     eza
     fselect
     dua
-    alacritty # primary terminal
-    kitty # backup terminal
+    pass            # password and secrets manager
+    gnupg           # encryption key generator
+    pinentry-gnome3 # pinentry for gpg
     firefox
     # My development packages
-    git
+    git             # version control
+    docker          # container
     # Window manager packages
-    neofetch
-    polybar
-    rofi
-    dunst
-    feh
+    neofetch        # summarizes system configuration
+    polybar         # system status bar
+    rofi            # startup application
+    dunst           # notification manager
+    feh             # wallpaper manager
   ];
 
+  # Settings to help enable GNUPG (PGP)
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    # pinentryPackage = "pkgs.pinentry-gnome3";
+    enableSSHSupport = true;
+  };
   # Enabling xserver and i3
   services.xserver.enable = true;
   services.xserver.desktopManager.xterm.enable = false;

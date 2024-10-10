@@ -11,6 +11,7 @@ CONFIG_FILES=(
     ".config/i3/config"
     ".config/nvim/init.vim"
     ".config/polybar/config.ini"
+    ".config/kitty/kitty.conf"
 )
 
 # Function for copying configs

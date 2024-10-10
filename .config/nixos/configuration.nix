@@ -46,8 +46,8 @@
     eza
     fselect
     dua
-    alacritty
-    kitty
+    alacritty # primary terminal
+    kitty # backup terminal
     firefox
     # My development packages
     git
@@ -56,6 +56,7 @@
     polybar
     rofi
     dunst
+    feh
   ];
 
   # Enabling xserver and i3

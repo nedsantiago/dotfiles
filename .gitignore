@@ -1,3 +1,16 @@
 # My .gitignore
 
 result/
+
+# Environment Variables
+*.env
+.env
+
+# Secrets Directory
+.secrets/
+
+# keys
+*.key
+key
+*.pem
+pem

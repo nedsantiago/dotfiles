@@ -22,11 +22,11 @@ create_symlink() {
     # check if destination exists
     if [ -f "$dest" ]; then
         echo "Backing up existing $dest to ${dest}.bak"
-        mv "$dest" "${dest}.bak"
+        sudo mv "$dest" "${dest}.bak"
     fi
 
     # create the symlink
-    ln -s "$src" "$dest"
+    sudo ln -s "$src" "$dest"
 }
 
 # Loop for copying configs
@@ -42,17 +42,32 @@ for file in "${CONFIG_FILES[@]}"; do
 
 done
 
-SYSTEM_NIXOS_CONFIG_DIR="/etc/nixos"
+NIXOS_DIR="/etc/nixos"
+MY_NIXOS_DIR=".config/nixos/"
+NIXOS_CONF_FILES=(
+    "configuration.nix"
+    "hardware-configuration.nix"
+)
 # Add links to nixos configs
-sudo cp "$dotfiles_dir/.config/nixos/configuration.nix" "$SYSTEM_NIXOS_CONFIG_DIR/configuration.nix"
-sudo cp "$dotfiles_dir/.config/nixos/hardware-configuration.nix" "$SYSTEM_NIXOS_CONFIG_DIR/hardware-configuration.nix"
+if [ -d "$NIXOS_DIR" ]; then
+    for file in "${NIXOS_CONF_FILES[@]}"; do
+        src="$dotfiles_dir/$MY_NIXOS_DIR/$file"
+        dest="$NIXOS_DIR/$file"
+        if [ -f "$src" ]; then
+            create_symlink "$src" "$dest"
+        else
+            echo "Warning: $src does not exist, skipping."
+        fi
+    done
+fi
 
 echo "Cleaning up..."
 unset src
 unset dest
 unset file
 unset dofiles_dir
-unset MY_NIXOS_SUBDIR
-unset SYSTEM_NIXOS_CONFIG_DIR
+unset MY_NIXOS_DIR
+unset NIXOS_DIR
+unset NIXOS_CONF_FILES
 
 echo "Completed setup script..."

@@ -4,9 +4,6 @@
   imports =
     [ ./hardware-configuration.nix ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   # Fonts
   fonts.packages = with pkgs; [
     noto-fonts
@@ -32,38 +29,6 @@
     jack.enable = true;
   };
 
-  users.users.admin = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-  };
-
-  environment.systemPackages = with pkgs; [
-    # My packages
-    alacritty       # primary terminal
-    kitty           # backup terminal
-    neovim          # text editor
-    wget
-    tree
-    bat
-    eza
-    fselect
-    dua
-    pass            # password and secrets manager
-    gnupg           # encryption key generator
-    pinentry-gnome3 # pinentry for gpg
-    ssh
-    firefox
-    # My development packages
-    git             # version control
-    docker          # container
-    # Window manager packages
-    neofetch        # summarizes system configuration
-    polybar         # system status bar
-    rofi            # startup application
-    dunst           # notification manager
-    feh             # wallpaper manager
-  ];
-
   # Settings to help enable GNUPG (PGP)
   services.pcscd.enable = true;
   programs.gnupg.agent = {
@@ -87,6 +52,48 @@
 
   services.displayManager.defaultSession = "none+i3";
 
+  users.users.admin = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "docker"];
+  };
+
+  environment.systemPackages = with pkgs; [
+    # My packages
+    alacritty       # primary terminal
+    kitty           # backup terminal
+    neovim          # text editor
+    wget
+    tree
+    bat
+    eza
+    fselect
+    dua
+    ripgrep
+    pass            # password and secrets manager
+    gnupg           # encryption key generator
+    pinentry-tty    # pinentry for gpg
+    firefox
+    # My development packages
+    git             # version control
+    docker          # container
+    # Window manager packages
+    neofetch        # summarizes system configuration
+    polybar         # system status bar
+    rofi            # startup application
+    dunst           # notification manager
+    feh             # wallpaper manager
+  ];
+
+  # Enable and isntall Docker
+  virtualisation.docker = {
+    enable = true;
+    # remove persistent root requirement
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
@@ -102,12 +109,15 @@
     modesetting.enable = true;
     package = pkgs.nvidiaPackages.stable;
   };
-
   boot.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
   system.stateVersion = "24.05";
+
 }
 

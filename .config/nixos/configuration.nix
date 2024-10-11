@@ -33,7 +33,7 @@
   services.pcscd.enable = true;
   programs.gnupg.agent = {
     enable = true;
-    # pinentryPackage = "pkgs.pinentry-gnome3";
+    pinentryPackage = pkgs.pinentry-curses;
     enableSSHSupport = true;
   };
   # Enabling xserver and i3
@@ -68,10 +68,11 @@
     eza
     fselect
     dua
-    ripgrep
+    ripgrep         # command: rg
+    exiftool        # check metadata (find file's original source)
     pass            # password and secrets manager
     gnupg           # encryption key generator
-    pinentry-tty    # pinentry for gpg
+    pinentry-curses # pinentry for gpg
     firefox
     # My development packages
     git             # version control
@@ -82,6 +83,7 @@
     rofi            # startup application
     dunst           # notification manager
     feh             # wallpaper manager
+    pywal           # color selector based on background/wallpaper
   ];
 
   # Enable and isntall Docker
@@ -113,6 +115,7 @@
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.config.common.default = "*";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

@@ -73,7 +73,8 @@
     pass            # password and secrets manager
     gnupg           # encryption key generator
     pinentry-curses # pinentry for gpg
-    firefox
+    firefox         # main browser
+    lynx            # text-based browser
     # My development packages
     git             # version control
     docker          # container

@@ -9,6 +9,9 @@ result/
 # Secrets Directory
 .secrets/
 
+# Images directory (still unsure whether to add image to repo)
+*.png
+
 # keys
 *.key
 key

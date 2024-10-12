@@ -11,7 +11,10 @@ CONFIG_FILES=(
     ".config/i3/config"
     ".config/nvim/init.vim"
     ".config/polybar/config.ini"
+    ".config/polybar/launch.sh"
     ".config/kitty/kitty.conf"
+    ".config/bat/config"
+    ".config/rofi/config.rasi"
 )
 
 # Function for copying configs
@@ -60,14 +63,14 @@ if [ -d "$NIXOS_DIR" ]; then
         fi
     done
 fi
+unset MY_NIXOS_DIR
+unset NIXOS_DIR
+unset NIXOS_CONF_FILES
 
 echo "Cleaning up..."
 unset src
 unset dest
 unset file
 unset dofiles_dir
-unset MY_NIXOS_DIR
-unset NIXOS_DIR
-unset NIXOS_CONF_FILES
 
 echo "Completed setup script..."

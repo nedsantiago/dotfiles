@@ -2,7 +2,7 @@
 
 {
   imports =
-    [ ./hardware-configuration.nix ];
+    [ ./hardware-configuration.nix ./rust.nix];
 
   # Fonts
   fonts.packages = with pkgs; [
@@ -17,7 +17,7 @@
   time.timeZone = "Asia/Singapore";
 
   console = {
-    font = "Lat2-Terminus16";
+    font = "fira-code";
     keyMap = "us";
   };
 
@@ -124,4 +124,3 @@
   system.stateVersion = "24.05";
 
 }
-

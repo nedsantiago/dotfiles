@@ -1,6 +1,8 @@
 # My .gitignore
 
+# nixos build results
 result/
+result
 
 # Environment Variables
 *.env
@@ -8,9 +10,6 @@ result/
 
 # Secrets Directory
 .secrets/
-
-# Images directory (still unsure whether to add image to repo)
-*.png
 
 # keys
 *.key

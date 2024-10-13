@@ -1,5 +1,6 @@
 " MY CONFIG SETTINGS
 " Copied from Neural Nine
+let tabspace=4
 set number                  " add line numbers
 set relativenumber          " Relative Numbers
 set autoindent              " indent a new line to align with line just typed
@@ -27,3 +28,14 @@ set ttyfast                 " Speed up scrolling in Vim
 " set spell                 " enable spell check (needs a language package)
 " set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
+
+
+" PLUGINS
+
+call plug#begin()
+
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
+call plug#end()

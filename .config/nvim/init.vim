@@ -1,12 +1,12 @@
 " MY CONFIG SETTINGS
 " Copied from Neural Nine
-let tabspace=4
+let indent=4
 set number                  " add line numbers
 set relativenumber          " Relative Numbers
 set autoindent              " indent a new line to align with line just typed
-set tabstop=4               " number of columns occupied by a tab
-set shiftwidth=4            " width for autoindents
-set softtabstop=4           " see multiple spaces as tabstops
+let &tabstop=indent               " number of columns occupied by a tab
+let &shiftwidth=indent            " width for autoindents
+let &softtabstop=indent           " see multiple spaces as tabstops
 set smarttab
 set mouse=a                 " middle-click paste with
 

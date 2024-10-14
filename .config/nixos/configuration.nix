@@ -2,7 +2,7 @@
 
 {
   imports =
-    [ ./hardware-configuration.nix ./rust.nix];
+    [ ./hardware-configuration.nix ];
 
   # Fonts
   fonts.packages = with pkgs; [

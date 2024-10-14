@@ -41,12 +41,6 @@
   services.xserver.desktopManager.xterm.enable = false;
   services.xserver.windowManager.i3 = {
     enable = true;
-    extraPackages = with pkgs; [
-      dmenu
-      i3status
-      i3lock
-      i3blocks
-    ];
   };
   services.picom.enable = true;
 
@@ -55,6 +49,10 @@
   users.users.admin = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker"];
+  };
+  users.extraUsers.present = {
+    isNormalUser = true;
+    home="/home/present/";
   };
 
   environment.systemPackages = with pkgs; [

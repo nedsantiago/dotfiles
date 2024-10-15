@@ -11,25 +11,29 @@ create_symlink() {
     local src=$1
     local dest=$2
 
+    #local dest_dir="$dest" | sed 's|\(.*\)/.*|\1|'
+    local dest_dir="${dest%/*}"
+
     # If source file is not a file
     if [ ! -f "$src" ]; then
         echo "Warning: $src is not a file, skipping."
     # Else if destination already symlinks to source file
     elif [ "$src" -ef "$dest" ]; then
         echo "Warning: source and destination are the same $dest, skipping."
-    else
-	# If destination is a broken link, delete it
-	if [ ! -e "$dest" ]; then
-	    # Remove it
+    # Else if destination does not exist (can still be a broken symlink)
+	elif [ ! -e "$dest" ]; then
+	    # If it is a broken link
+        if [ -L "$dest" ]; then
             echo "Broken link found. Attempting to delete $dest"
-	    sudo rm "$dest"
-        # If destination is an existing (non-symlink) file
+	        sudo rm "$dest"
+        # Else if destination is an existing (non-symlink) file
         elif [ -f "$dest" ]; then
             # Back it up
             echo "Backing up existing $dest to ${dest}.bak"
             sudo mv "$dest" "${dest}.bak"
         fi
         # Create the symlink (soft link)
+        sudo mkdir -p "$dest_dir"
         sudo ln -s "$src" "$dest"
     fi
 }
@@ -95,6 +99,7 @@ unset HOME_CONFIG_FILES
 
 unset src
 unset dest
+unset dest_dir
 unset file
 unset DOTFILES_DIR
 

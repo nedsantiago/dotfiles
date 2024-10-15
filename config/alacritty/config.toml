@@ -8,6 +8,7 @@ normal.family = "Fira Code"
 bold.family = "Fira Code"
 italic.family = "Fira Code"
 bold_italic.family = "Fira Code"
+size = 10
 
 [mouse]
 hide_when_typing = true

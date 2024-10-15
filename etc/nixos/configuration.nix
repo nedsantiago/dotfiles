@@ -76,6 +76,7 @@
     # My development packages
     git             # version control
     docker          # container
+    docker-compose
     # Window manager packages
     neofetch        # summarizes system configuration
     polybar         # system status bar
@@ -83,6 +84,8 @@
     dunst           # notification manager
     feh             # wallpaper manager
     pywal           # color selector based on background/wallpaper
+    # Additional system packages
+    zsh
   ];
 
   # Enable and isntall Docker

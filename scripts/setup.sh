@@ -74,6 +74,11 @@ if [ -d "$NIXOS_DIR" ]; then
 
         create_symlink "$src" "$dest"
     done
+
+    # Add links to Nix package manager config
+    src="$DOTFILES_DIR/etc/nix/nix.conf"
+    dest="/etc/nix/nix.conf"
+    create_symlink "$src" "$dest"
 fi
 
 HOME_CONFIG_FILES=(

@@ -21,7 +21,7 @@ gaps outer 5
 
 # Autostart
 exec --no-startup-id picom
-exec --no-startup-id "wal -i ~/.config/bg-img/"
+exec --no-startup-id "wal -i ~/dotfiles/bg-img/"
 exec --no-startup-id "wal -R"
 
 # polybar integration

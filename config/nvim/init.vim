@@ -9,13 +9,22 @@ inoremap [ []<Esc>ha
 inoremap " ""<Esc>ha
 inoremap ' ''<Esc>ha
 inoremap ` ``<Esc>ha
+inoremap """  """"""<Esc>hhha
 
+inoremap {<CR> {<CR><BS>}<Esc>ko
+inoremap (<CR> (<CR><BS>)<Esc>ko
+inoremap [<CR> [<CR><BS>]<Esc>ko
+inoremap "<CR> "<CR><BS>"<Esc>ko
+inoremap '<CR> '<CR><BS>'<Esc>ko
+inoremap """<CR> """<CR>"""<Esc>ko
 
-inoremap {<CR> {<CR><BS>}<Esc>ha
-inoremap (<CR> (<CR><BS>)<Esc>ha
-inoremap [<CR> [<CR><BS>]<Esc>ha
-inoremap "<CR> "<CR><BS>"<Esc>ha
-inoremap '<CR> '<CR><BS>'<Esc>ha
+inoremap {} {} <Esc>ha
+inoremap () () <Esc>ha
+inoremap [] [] <Esc>ha
+inoremap "" "" <Esc>ha
+inoremap '' '' <Esc>ha
+inoremap `` `` <Esc>ha
+inoremap """" """"""<Esc>hhha
 
 " Copied from Neural Nine
 let indent=4

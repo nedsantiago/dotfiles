@@ -21,7 +21,7 @@ create_symlink() {
     elif [ "$src" -ef "$dest" ]; then
         echo "Warning: source and destination are the same $dest, skipping."
     # Else if destination does not exist (can still be a broken symlink)
-	elif [ ! -e "$dest" ]; then
+	elif [ -e "$dest" ]; then
 	    # If it is a broken link
         if [ -L "$dest" ]; then
             echo "Broken link found. Attempting to delete $dest"

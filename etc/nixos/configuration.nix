@@ -54,6 +54,10 @@
     isNormalUser = true;
     home="/home/present/";
   };
+  users.extraUsers.work = {
+    isNormalUser = true;
+    home="/home/work/";
+  };
 
   environment.systemPackages = with pkgs; [
     # My packages

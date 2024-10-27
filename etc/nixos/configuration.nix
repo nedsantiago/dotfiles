@@ -59,6 +59,11 @@
     home="/home/work/";
   };
 
+  nixpkgs.config.allowUnfreePredicate = pkgs:
+    builtins.elem (lib.getName pkgs) [
+      "bws"
+    ];
+
   environment.systemPackages = with pkgs; [
     # My packages
     alacritty       # primary terminal
@@ -71,6 +76,9 @@
     fselect
     dua
     ripgrep         # command: rg
+    xclip
+    bws
+    jq
     exiftool        # check metadata (find file's original source)
     pass            # password and secrets manager
     gnupg           # encryption key generator

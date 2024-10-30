@@ -59,48 +59,61 @@
     home="/home/work/";
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkgs:
-    builtins.elem (lib.getName pkgs) [
-      "bws"
-    ];
+  # nixpkgs.config.allowUnfreePredicate = pkgs:
+  #   builtins.elem (lib.getName pkgs) [
+  #     "bws"
+  #   ];
 
   environment.systemPackages = with pkgs; [
-    # My packages
+
+    # Terminal Packages
     alacritty       # primary terminal
     kitty           # backup terminal
     neovim          # text editor
-    wget
-    tree
-    bat
-    eza
-    fselect
-    dua
-    ripgrep         # command: rg
-    xclip
-    bws
-    jq
-    exiftool        # check metadata (find file's original source)
-    pass            # password and secrets manager
+    # tmux            # terminal panes
+    # mosh            # ssh with unstable internet
+    zsh             # alternative shell
+    
+    # File Management Packages
+    bat             # print and view file to terminal
+    eza             # a robust file listing tool
+    fselect         # sql-like file management
+    dua             # disk usage
+    ripgrep         # find keywords in a file or directory
+    tree            # show file tree
+    exiftool        # read and edit file metadata
+
+    # Secrets Management Tools
     gnupg           # encryption key generator
     pinentry-curses # pinentry for gpg
-    firefox         # main browser
-    lynx            # text-based browser
-    # My development packages
+    sops            # file encryption and secrets manager
+    pass            # password manager
+    # bws             # bitwarden secrets management
+    # jq              # json query interpreter (needed for bitwarden)
+
+    # My Development packages
     git             # version control
     docker          # container
-    docker-compose
-    # Window manager packages
+    docker-compose  # docker manager and interface
+    ollama          # open-source language model
+
+    # Window Manager packages
     neofetch        # summarizes system configuration
     polybar         # system status bar
     rofi            # startup application
     dunst           # notification manager
     feh             # wallpaper manager
-    pywal           # color selector based on background/wallpaper
-    # Additional system packages
-    zsh
-  ];
+    pywal           # wallpaper manager and color selector
 
-  # Enable and isntall Docker
+    # My Packages
+    # flatpak         # package manager
+    firefox         # main browser
+    lynx            # text-based browser
+    wget            # cli downloader
+    xclip           # clipboard manager
+    ];
+
+  # Enable and install Docker
   virtualisation.docker = {
     enable = true;
     # remove persistent root requirement
@@ -135,5 +148,4 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   system.stateVersion = "24.05";
-
 }

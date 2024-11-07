@@ -48,6 +48,7 @@ CONFIG_FILES=(
     "kitty/kitty.conf"
     "bat/config"
     "rofi/config.rasi"
+    "tmux/tmux.conf"
 )
 
 # Loop through .config files

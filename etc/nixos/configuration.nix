@@ -70,7 +70,7 @@
     alacritty       # primary terminal
     kitty           # backup terminal
     neovim          # text editor
-    # tmux            # terminal panes
+    tmux            # terminal panes
     # mosh            # ssh with unstable internet
     zsh             # alternative shell
     

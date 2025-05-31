@@ -2,7 +2,7 @@
 
 ## Configuration
 - OS: NixOS
-- Shell: Bash 5.2.32
+- Shell: Bash 5.2.37
 - Desktop Environment: none+i3
 - Window Manager: i3
 - Terminal: Alacritty

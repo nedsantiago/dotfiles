@@ -15,7 +15,6 @@
   #   font = "fira-code";
   #   keyMap = "us";
   # };
-
   # # Pipewire for audio
   # services.pipewire = {
   #   enable = true;
@@ -67,6 +66,10 @@
 
   ];
 
+  virtualisation.docker = {
+
+  };
+
   services.picom.enable = true;
 
   # Assign default apps
@@ -78,14 +81,6 @@
     TERMINAL = "kitty";
   };
 
-  virtualisation.docker = {
-    enable = true;
-
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

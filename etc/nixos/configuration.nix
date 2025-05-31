@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules
     ];
   
   fonts.packages = with pkgs; [
@@ -139,24 +140,6 @@
   ];
 
   services.picom.enable = true;
-
-  # Building the User Interface
-  # In my experience, a minimum xserver is required to get wayland running
-  services.xserver = {
-    enable = true;
-    desktopManager.xterm.enable = false;
-    windowManager.i3.enable = true;
-  };
-  # services.displayManager.defaultSession = "none+i3";
-
-  # services.displayManager.defaultSession = "hyprland";
-
-  # programs.hyprland = {
-  #   # Enable hyprland
-  #   enable = true;
-  #   # xwayland allows X11-only apps to run in wayland
-  #   xwayland.enable = true;
-  # };
 
   # Assign default apps
   environment.sessionVariables = {

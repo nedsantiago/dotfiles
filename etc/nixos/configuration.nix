@@ -110,8 +110,6 @@
 
     # My Development packages
     git             # version control
-    docker          # container
-    docker-compose  # docker manager and interface
     # ollama          # large language model
 
     # Window Manager packages

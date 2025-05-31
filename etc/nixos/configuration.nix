@@ -1,68 +1,93 @@
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+
 { config, lib, pkgs, ... }:
 
 {
   imports =
-    [ ./hardware-configuration.nix ];
-
-  # Fonts
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+    ];
+  
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     liberation_ttf
     fira-code
     dina-font
   ];
 
+  # Set your time zone.
   time.timeZone = "Asia/Singapore";
 
-  console = {
-    font = "fira-code";
-    keyMap = "us";
+  # console = {
+  #   font = "fira-code";
+  #   keyMap = "us";
+  # };
+
+  # # Pipewire for audio
+  # services.pipewire = {
+  #   enable = true;
+  #   pulse.enable = true;
+  #   alsa.enable = true;
+  #   jack.enable = true;
+  # };
+
+  # # Settings to help enable GNUPG (PGP)
+  # services.pcscd.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   pinentryPackage = pkgs.pinentry-curses;
+  #   enableSSHSupport = true;
+  # };
+  
+  # # Settings to help enable GNUPG (PGP)
+  # services.pcscd.enable
+
+  # Pipewire for audio<D-2>
+  networking.hostName = "nixos"; # Define your hostname.
+
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_GB.UTF-8";
+    LC_IDENTIFICATION = "en_GB.UTF-8";
+    LC_MEASUREMENT = "en_GB.UTF-8";
+    LC_MONETARY = "en_GB.UTF-8";
+    LC_NAME = "en_GB.UTF-8";
+    LC_NUMERIC = "en_GB.UTF-8";
+    LC_PAPER = "en_GB.UTF-8";
+    LC_TELEPHONE = "en_GB.UTF-8";
+    LC_TIME = "en_GB.UTF-8";
   };
 
-  # Pipewire for audio
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    alsa.enable = true;
-    jack.enable = true;
-  };
-
-  # Settings to help enable GNUPG (PGP)
-  services.pcscd.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryPackage = pkgs.pinentry-curses;
-    enableSSHSupport = true;
-  };
-  # Enabling xserver and i3
-  services.xserver.enable = true;
-  services.xserver.desktopManager.xterm.enable = false;
-  services.xserver.windowManager.i3 = {
-    enable = true;
-  };
-  services.picom.enable = true;
-
-  services.displayManager.defaultSession = "none+i3";
-
-  users.users.admin = {
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.nix-admin = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker"];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    packages = with pkgs; [];
   };
-  users.extraUsers.present = {
-    isNormalUser = true;
-    home="/home/present/";
-  };
-  users.extraUsers.work = {
-    isNormalUser = true;
-    home="/home/work/";
-  };
+
 
   # nixpkgs.config.allowUnfreePredicate = pkgs:
   #   builtins.elem (lib.getName pkgs) [
   #     "bws"
   #   ];
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
 
   environment.systemPackages = with pkgs; [
 
@@ -72,7 +97,7 @@
     neovim          # text editor
     tmux            # terminal panes
     # mosh            # ssh with unstable internet
-    zsh             # alternative shell
+    # zsh             # alternative shell
     
     # File Management Packages
     bat             # print and view file to terminal
@@ -84,10 +109,10 @@
     exiftool        # read and edit file metadata
 
     # Secrets Management Tools
-    gnupg           # encryption key generator
+    # gnupg           # encryption key generator
     pinentry-curses # pinentry for gpg
-    sops            # file encryption and secrets manager
-    pass            # password manager
+    # sops            # file encryption and secrets manager
+    # pass            # password manager
     # bws             # bitwarden secrets management
     # jq              # json query interpreter (needed for bitwarden)
 
@@ -95,7 +120,7 @@
     git             # version control
     docker          # container
     docker-compose  # docker manager and interface
-    ollama          # open-source language model
+    # ollama          # large language model
 
     # Window Manager packages
     neofetch        # summarizes system configuration
@@ -111,41 +136,90 @@
     lynx            # text-based browser
     wget            # cli downloader
     xclip           # clipboard manager
-    ];
+  ];
 
-  # Enable and install Docker
+  services.picom.enable = true;
+
+  # Building the User Interface
+  # In my experience, a minimum xserver is required to get wayland running
+  services.xserver = {
+    enable = true;
+    desktopManager.xterm.enable = false;
+    windowManager.i3.enable = true;
+  };
+  # services.displayManager.defaultSession = "none+i3";
+
+  # services.displayManager.defaultSession = "hyprland";
+
+  # programs.hyprland = {
+  #   # Enable hyprland
+  #   enable = true;
+  #   # xwayland allows X11-only apps to run in wayland
+  #   xwayland.enable = true;
+  # };
+
+  # Assign default apps
+  environment.sessionVariables = {
+    # WLR_NO_HARDWARE_CURSORS = "1";
+    # NIXOS_OZONE_WL = "1";
+    EDITOR = "neovim";
+    BROWSER = "firefox";
+    TERMINAL = "kitty";
+  };
+
   virtualisation.docker = {
     enable = true;
-    # remove persistent root requirement
+
     rootless = {
       enable = true;
       setSocketVariable = true;
     };
   };
 
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
-    EDITOR = "neovim";
-    BROWSER = "firefox";
-    TERMINAL = "alacritty";
-  };
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
 
-  hardware.opengl.enable = true;
+  # List services that you want to enable:
 
-  # Ensure NVIDIA is properly configured
-  hardware.nvidia = {
-    modesetting.enable = true;
-    package = pkgs.nvidiaPackages.stable;
-  };
-  boot.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+  # Enable the OpenSSH daemon.
+  # services.openssh.enable = true;
 
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  xdg.portal.config.common.default = "*";
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
 
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+
+  # hardware.opengl.enable = true;
+
+  # # Ensure NVIDIA is properly configured
+  # hardware.nvidia = {
+  #   modesetting.enable = true;
+  #   package = pkgs.nvidiaPackages.stable;
+  # };
+  # boot.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+
+  # xdg.portal.enable = true;
+  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  # xdg.portal.config.common.default = "*";
+
+  # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  system.stateVersion = "24.05";
+  boot.initrd.luks.devices."luks-a852f5d6-b908-4ebd-99f9-7fca50fa0552".device = "/dev/disk/by-uuid/a852f5d6-b908-4ebd-99f9-7fca50fa0552";
+
+  system.stateVersion = "25.05"; # Did you read the comment?
 }

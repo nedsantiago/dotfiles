@@ -20,3 +20,10 @@ config file under the `config` directory is usable in any Linux distrubution.
 - Wallpaper Manager: Feh
 - Color manager: Pywal
 
+## Usage
+
+When using NixOS, run:
+
+```
+source scripts/setup.sh
+```

@@ -20,45 +20,11 @@
   };
 
 
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-
   # console = {
   #   font = "fira-code";
   #   keyMap = "us";
   # };
 
-
-  # # Pipewire for audio
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  #   alsa.enable = true;
-  #   jack.enable = true;
-  # };
-
-  # Pipewire for audio<D-2>
-
-
-  # # Settings to help enable GNUPG (PGP)
-  # services.pcscd.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   pinentryPackage = pkgs.pinentry-curses;
-  #   enableSSHSupport = true;
-  # };
-  
-  # # Settings to help enable GNUPG (PGP)
-  # services.pcscd.enable
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -69,7 +35,19 @@
   # };
 
 
+  # xdg.portal.enable = true;
+  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  # xdg.portal.config.common.default = "*";
+
+
   services.picom.enable = true;
+
+
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.initrd.luks.devices."luks-a852f5d6-b908-4ebd-99f9-7fca50fa0552".device = "/dev/disk/by-uuid/a852f5d6-b908-4ebd-99f9-7fca50fa0552";
 
 
   # This value determines the NixOS release from which the default
@@ -78,17 +56,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-
-
-  # xdg.portal.enable = true;
-  # xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  # xdg.portal.config.common.default = "*";
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.initrd.luks.devices."luks-a852f5d6-b908-4ebd-99f9-7fca50fa0552".device = "/dev/disk/by-uuid/a852f5d6-b908-4ebd-99f9-7fca50fa0552";
-
   system.stateVersion = "25.05"; # Did you read the comment?
 }

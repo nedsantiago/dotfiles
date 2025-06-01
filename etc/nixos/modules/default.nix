@@ -3,6 +3,7 @@
 {
   imports = [
     ./app_defaults.nix
+    ./brightness.nix
     ./docker.nix
     ./fonts.nix
     # ./hyprland.nix        # either hyprland or xserver should be online

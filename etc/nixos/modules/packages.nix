@@ -3,7 +3,15 @@
 { config, pkgs, ... }:
 
 {
+    # nixpkgs.config.allowUnfreePredicate = pkgs:
+    #     builtins.elem (lib.getName pkgs) [
+    #         "bws"
+    #     ];
+
     config = {
+
+        # List packages installed in system profile. To search, run:
+        # $ nix search wget
         environment.systemPackages = with pkgs; [
             # Terminal Packages
             alacritty       # primary terminal

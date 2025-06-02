@@ -42,7 +42,7 @@ create_symlink() {
 CONFIG_FILES=(
     "alacritty/alacritty.toml"
     "i3/config"
-    "nvim/init.vim"
+    "nvim/init.lua"
     "polybar/config.ini"
     "polybar/launch.sh"
     "kitty/kitty.conf"

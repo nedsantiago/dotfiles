@@ -11,6 +11,7 @@
     ./networking.nix
     # ./nvidia.nix          # uncomment when using an nvidia gpu
     ./packages.nix
+    ./texlive.nix           # use when making latex documents
     ./users.nix
     ./xserver.nix
   ];

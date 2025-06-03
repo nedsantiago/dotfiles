@@ -40,6 +40,7 @@
   # xdg.portal.config.common.default = "*";
 
 
+  # transparency in terminals related
   services.picom.enable = true;
 
 

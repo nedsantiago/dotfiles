@@ -31,7 +31,6 @@
             exiftool        # read and edit file metadata
 
             # Secrets Management Tools
-            # gnupg           # encryption key generator
             pinentry-curses # pinentry for gpg
             # sops            # file encryption and secrets manager
             # pass            # password manager
@@ -55,6 +54,7 @@
             firefox         # main browser
             lynx            # text-based browser
             wget            # cli downloader
+            unzip           # unzips downloaded files
             xclip           # clipboard manager
         ];
     };

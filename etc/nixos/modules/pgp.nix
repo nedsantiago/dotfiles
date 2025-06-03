@@ -1,14 +1,23 @@
 { config, pkgs, ... }:
 
 {
-    # # Settings to help enable GNUPG (PGP)
-    # services.pcscd.enable = true;
-    # programs.gnupg.agent = {
-    #     enable = true;
-    #     pinentryPackage = pkgs.pinentry-curses;
-    #     enableSSHSupport = true;
-    # };
-    
-    # # Settings to help enable GNUPG (PGP)
-    # services.pcscd.enable
+    config = {
+      environment.systemPackages = with pkgs; [
+        # Encryption
+        gnupg       # used for symmetric envryption
+      ];
+    };
+
+    config = {
+      services.pcscd.enable = true;
+    };
+
+    # Settings to help enable GNUPG (PGP)
+    config = {
+      programs.gnupg.agent = {
+          enable = true;
+          pinentryPackage = pkgs.pinentry-curses;
+          enableSSHSupport = true;
+      };
+    };
 }

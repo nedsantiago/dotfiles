@@ -1,7 +1,16 @@
 # Ned Santiago's dotfiles
 
-A collection of Ned Santiago's config files. The config targets NixOS but each
-config file under the `config` directory is usable in any Linux distrubution.
+A collection of Ned Santiago's config files. Configurations primarily target NixOS but configs (inside `config` directory) can be used in other Linux distrubutions. However, mileage may vary with older packages especially with Linux distributions with slower release models, e.g. Ubuntu LTS, Debian, Rocky Linux, etc.
+
+## Why?
+
+Setup configuration is time consuming. This NixOS setup aims to reduce time setting up new computers. So, why not make my configurations reproduceable and long-lasting?
+
+## Goals
+Create a reproducible configuration that will support my programming work.
+- Better secrets management
+- Better development tools
+- Better development environment closer to a server environment
 
 ## Configuration
 
@@ -27,3 +36,4 @@ When using NixOS, run:
 ```
 source scripts/setup.sh
 ```
+

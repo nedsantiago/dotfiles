@@ -29,6 +29,7 @@
             ripgrep         # find keywords in a file or directory
             tree            # show file tree
             exiftool        # read and edit file metadata
+            ranger          # a file explorer with file preview
 
             # Secrets Management Tools
             pinentry-curses # pinentry for gpg

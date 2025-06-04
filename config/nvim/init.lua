@@ -1,3 +1,10 @@
+-- Display-alignment based movement
+vim.keymap.set('n', 'j', 'gj', { noremap = true, silent = true })
+vim.keymap.set('n', 'k', 'gk', { noremap = true, silent = true })
+
+vim.keymap.set('v', 'j', 'gj', { noremap = true, silent = true })
+vim.keymap.set('v', 'k', 'gk', { noremap = true, silent = true })
+
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
 

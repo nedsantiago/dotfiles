@@ -43,6 +43,10 @@
   # transparency in terminals related
   services.picom.enable = true;
 
+  services.xserver.libinput = {
+    enable = true;
+    naturalScrolling = true;
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

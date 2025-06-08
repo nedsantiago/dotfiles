@@ -8,7 +8,7 @@ Setup configuration is time consuming. This NixOS setup aims to reduce time sett
 
 ## Goals
 Create a reproducible configuration that will support my programming work.
-- Better secrets management
+- Better secrets management (currently considering symmetric encrypted *.env files)
 - Better development tools
 - Better development environment closer to a server environment
 

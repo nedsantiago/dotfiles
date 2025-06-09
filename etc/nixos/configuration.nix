@@ -43,9 +43,9 @@
   # transparency in terminals related
   services.picom.enable = true;
 
-  services.xserver.libinput = {
+  services.libinput = {
     enable = true;
-    naturalScrolling = true;
+    touchpad.naturalScrolling = true;
   };
 
   # Bootloader.

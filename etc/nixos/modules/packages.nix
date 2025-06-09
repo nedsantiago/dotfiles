@@ -40,7 +40,7 @@
 
       # My Development packages
       git             # version control
-      # ollama          # large language model
+      ollama          # large language model
 
       # Window Manager packages
       neofetch        # summarizes system configuration

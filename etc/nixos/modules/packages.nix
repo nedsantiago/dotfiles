@@ -41,6 +41,7 @@
       # My Development packages
       git             # version control
       ollama          # large language model
+      nodejs_24       # node package manager, a javascript runner
 
       # Window Manager packages
       neofetch        # summarizes system configuration

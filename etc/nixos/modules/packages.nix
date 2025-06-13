@@ -42,6 +42,7 @@
       git             # version control
       ollama          # large language model
       nodejs_24       # node package manager, a javascript runner
+      mprocs          # for running services: a tool for running multiple processes
 
       # Window Manager packages
       neofetch        # summarizes system configuration
@@ -58,6 +59,7 @@
       wget            # cli downloader
       unzip           # unzips downloaded files
       xclip           # clipboard manager
+      presenterm      # for making presentations
     ];
   };
 }

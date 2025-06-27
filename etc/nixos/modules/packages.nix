@@ -27,7 +27,7 @@
       fselect         # sql-like file management
       dua             # disk usage
       ripgrep         # find keywords in a file or directory
-      tree            # show file tree
+      tre-command     # show file tree
       exiftool        # read and edit file metadata
       ranger          # a file explorer with file preview
 

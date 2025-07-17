@@ -20,6 +20,7 @@
       tmux            # terminal panes
       # mosh            # ssh with unstable internet
       # zsh             # alternative shell
+      starship        # minimal, fast, customizable shell prompt
       
       # File Management Packages
       bat             # print and view file to terminal
@@ -33,7 +34,7 @@
 
       # Secrets Management Tools
       pinentry-curses # pinentry for gpg
-      # sops            # file encryption and secrets manager
+      sops            # file encryption and secrets manager
       # pass            # password manager
       # bws             # bitwarden secrets management
       # jq              # json query interpreter (needed for bitwarden)
@@ -50,7 +51,8 @@
       rofi            # startup application
       dunst           # notification manager
       feh             # wallpaper manager
-      pywal           # wallpaper manager and color selector
+      pywal16         # wallpaper manager and color selector
+      pulseaudio      # pre-requisite for controlling audio
 
       # My Packages
       # flatpak         # package manager

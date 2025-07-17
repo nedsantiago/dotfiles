@@ -21,8 +21,17 @@ gaps outer 5
 
 # Autostart
 exec --no-startup-id picom
-exec --no-startup-id "wal -i ~/dotfiles/config/bg-img/"
-exec --no-startup-id "wal -R"
+exec --no-startup-id "wal --cols16 -i ~/dotfiles/config/bg-img/"
+# exec --no-startup-id "wal -i ~/dotfiles/config/bg-img/"
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
+
+# Brightness Controls
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +1%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 1%-
 
 # polybar integration
 exec --no-startup-id $HOME/.config/polybar/launch.sh

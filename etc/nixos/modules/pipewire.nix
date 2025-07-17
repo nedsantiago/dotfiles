@@ -2,6 +2,7 @@
 
 {
     # # Pipewire for audio
+    # security.rtkit.enable = true;
     # services.pipewire = {
     #     enable = true;
     #     pulse.enable = true;
@@ -9,5 +10,5 @@
     #     jack.enable = true;
     # };
 
-    # Pipewire for audio<D-2>
+    # # Pipewire for audio<D-2>
 }

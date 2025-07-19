@@ -31,6 +31,7 @@
       tre-command     # show file tree
       exiftool        # read and edit file metadata
       ranger          # a file explorer with file preview
+      zoxide          # personalized cd, use zoxide init fish --cmd cd | source
 
       # Secrets Management Tools
       pinentry-curses # pinentry for gpg

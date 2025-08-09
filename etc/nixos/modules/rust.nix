@@ -3,8 +3,9 @@
 {
   config = {
     environment.systemPackages = with pkgs; [
-      cargo
-      rustc
+      cargo               # Rust crate (package) manager
+      rustc               # Rust compiler
+      cargo-tarpaulin     # code coverage tool
     ];
   };
 }

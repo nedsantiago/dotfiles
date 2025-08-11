@@ -15,6 +15,7 @@
     # ./pgp.nix               # WIP, it couldnt find pinentery
     ./python.nix
     # ./texlive.nix           # use when making latex documents
+    ./bluetooth.nix
     ./rust.nix
     ./users.nix
     ./xserver.nix

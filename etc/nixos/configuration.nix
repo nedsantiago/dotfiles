@@ -25,17 +25,6 @@
   #   keyMap = "us";
   # };
 
-  # Allow for bluetooth connetions
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = false;
-    settings = {
-      General = {
-        Experimental = true;
-      };
-    };
-  };
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

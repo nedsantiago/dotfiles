@@ -12,8 +12,12 @@
     ./networking.nix
     # ./nvidia.nix          # uncomment when using an nvidia gpu
     ./packages.nix
-    # ./texlive.nix           # use when making latex documents
     # ./pgp.nix               # WIP, it couldnt find pinentery
+    ./python.nix
+    # ./texlive.nix           # use when making latex documents
+    ./bluetooth.nix
+    ./pipewire.nix
+    ./rust.nix
     ./users.nix
     ./xserver.nix
   ];

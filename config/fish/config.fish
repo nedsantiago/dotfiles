@@ -4,3 +4,5 @@ if status is-interactive
     # Import colorscheme from 'wal' asynchronously
     cat ~/.cache/wal/sequences
 end
+alias ls="eza"
+starship init fish | source

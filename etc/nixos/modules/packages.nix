@@ -20,6 +20,7 @@
       tmux            # terminal panes
       # mosh            # ssh with unstable internet
       # zsh             # alternative shell
+      starship        # minimal, fast, customizable shell prompt
       
       # File Management Packages
       bat             # print and view file to terminal
@@ -30,17 +31,18 @@
       tre-command     # show file tree
       exiftool        # read and edit file metadata
       ranger          # a file explorer with file preview
+      zoxide          # personalized cd, use zoxide init fish --cmd cd | source
 
       # Secrets Management Tools
       pinentry-curses # pinentry for gpg
-      # sops            # file encryption and secrets manager
+      sops            # file encryption and secrets manager
       # pass            # password manager
       # bws             # bitwarden secrets management
       # jq              # json query interpreter (needed for bitwarden)
 
       # My Development packages
       git             # version control
-      ollama          # large language model
+      # ollama          # large language model
       nodejs_24       # node package manager, a javascript runner
       mprocs          # for running services: a tool for running multiple processes
 
@@ -49,13 +51,16 @@
       polybar         # system status bar
       rofi            # startup application
       dunst           # notification manager
+      # libnotify       # additional notifications library (for testing dunst)
       feh             # wallpaper manager
-      pywal           # wallpaper manager and color selector
+      pywal16         # wallpaper manager and color selector
+      pulseaudio      # pre-requisite for controlling audio
 
       # My Packages
       # flatpak         # package manager
       firefox         # main browser
-      lynx            # text-based browser
+      libreoffice     # office productivity suite
+
       wget            # cli downloader
       unzip           # unzips downloaded files
       xclip           # clipboard manager

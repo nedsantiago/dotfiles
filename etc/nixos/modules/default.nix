@@ -16,6 +16,7 @@
     ./python.nix
     # ./texlive.nix           # use when making latex documents
     ./bluetooth.nix
+    ./pipewire.nix
     ./rust.nix
     ./users.nix
     ./xserver.nix

@@ -1,9 +1,9 @@
 # MY STOW IGNORES
-etc/
-home/
+etc
+home
 NOTES.md
-scripts/
-shells/
+scripts
+shells
 
 # DEFAULT STOW IGNORES
 RCS

@@ -18,7 +18,7 @@
       kitty           # backup terminal
       neovim          # text editor
       tmux            # terminal panes
-      # mosh            # ssh with unstable internet
+      mosh            # ssh with unstable internet
       # zsh             # alternative shell
       starship        # minimal, fast, customizable shell prompt
       
@@ -32,6 +32,7 @@
       exiftool        # read and edit file metadata
       ranger          # a file explorer with file preview
       zoxide          # personalized cd, use zoxide init fish --cmd cd | source
+      zip             # file compression
 
       # Secrets Management Tools
       pinentry-curses # pinentry for gpg
@@ -44,6 +45,7 @@
       git             # version control
       # ollama          # large language model
       nodejs_24       # node package manager, a javascript runner
+      yarn            # important for getting markdown-preview working
       mprocs          # for running services: a tool for running multiple processes
 
       # Window Manager packages
@@ -51,7 +53,7 @@
       polybar         # system status bar
       rofi            # startup application
       dunst           # notification manager
-      # libnotify       # additional notifications library (for testing dunst)
+      libnotify       # additional notifications library (for testing dunst)
       feh             # wallpaper manager
       pywal16         # wallpaper manager and color selector
       pulseaudio      # pre-requisite for controlling audio
@@ -65,6 +67,8 @@
       unzip           # unzips downloaded files
       xclip           # clipboard manager
       presenterm      # for making presentations
+
+      openvpn         # for accessing servers outside known IP
     ];
   };
 }

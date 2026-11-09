@@ -12,7 +12,7 @@
     ./networking.nix
     # ./nvidia.nix          # uncomment when using an nvidia gpu
     ./packages.nix
-    # ./pgp.nix               # WIP, it couldnt find pinentery
+    # ./pgp.nix
     ./python.nix
     # ./texlive.nix           # use when making latex documents
     ./bluetooth.nix

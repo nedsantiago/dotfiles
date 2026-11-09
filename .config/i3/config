@@ -24,8 +24,7 @@ exec --no-startup-id "wal -R"
 
 exec --no-startup-id picom
 
-exec --no-startup-id "wal --cols16 -i ~/dotfiles/config/bg-img/"
-# exec --no-startup-id "wal -i ~/dotfiles/config/bg-img/"
+exec --no-startup-id "wal --cols16 -i ~/dotfiles/.config/bg-img/"
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume

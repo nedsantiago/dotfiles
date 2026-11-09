@@ -21,6 +21,9 @@
       # mosh            # ssh with unstable internet
       # zsh             # alternative shell
       starship        # minimal, fast, customizable shell prompt
+
+      # Config Management Packages
+      stow            # dotfile management
       
       # File Management Packages
       bat             # print and view file to terminal
